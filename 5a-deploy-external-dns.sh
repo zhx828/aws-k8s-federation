@@ -73,7 +73,7 @@ spec:
         key: node-role.kubernetes.io/master
       containers:
       - name: external-dns
-        image: registry.opensource.zalan.do/teapot/external-dns:v0.7.1
+        image: registry.opensource.zalan.do/teapot/external-dns:v0.5.9
         args:
         - --source=service
         - --source=ingress

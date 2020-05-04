@@ -1,11 +1,20 @@
 #!/bin/bash
 
-source .env
+source .enve
 set -eux
 
 
-# install the nginx-ingress controller
-helm install stable/nginx-ingress --name nginx-ingress-controller
+
+# install nginx-ingress controller on all clusters
+for c in ${US_EAST_CONTEXT} ${AP_NORTHEAST_CONTEXT}; do
+    echo; echo ------------ ${c} : install nginx-ingress controller ------------; echo
+    kubectl config use-context ${c}
+    helm install stable/nginx-ingress --name nginx-ingress
+    echo; echo
+done
+
+
+kubectl config use-context ${FED_CONTEXT}
 
 # from https://cert-manager.io/docs/installation/kubernetes/
 kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.14.3/cert-manager-legacy.crds.yaml
@@ -26,14 +35,6 @@ helm install \
   --version v0.14.3 \
   jetstack/cert-manager
 
-
-# install nginx-ingress controller on all clusters
-for c in ${US_EAST_CONTEXT} ${AP_NORTHEAST_CONTEXT}; do
-    echo; echo ------------ ${c} : install nginx-ingress controller ------------; echo
-    kubectl config use-context ${c}
-    helm install stable/nginx-ingress --name nginx-ingress
-    echo; echo
-done
 
 # kubectl describe clusterissuer letsencrypt-staging
 kubectl apply -f ingress/cluster-issuer.yaml
