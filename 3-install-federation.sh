@@ -7,13 +7,13 @@ set -eux
 kubectl config use-context ${FED_CONTEXT}
 
 # Deploy the Federation control plane to the host cluster
-git clone https://github.com/kubernetes-sigs/kubefed.git -b v0.1.0-rc2
+git clone https://github.com/kubernetes-sigs/kubefed.git -b v0.2.0-alpha.1
 cd kubefed
 
 helm install charts/kubefed \
   --name kubefed \
   --namespace kube-federation-system \
-  --set controllermanager.tag=v0.1.0-rc2 
+  --set controllermanager.tag=v0.2.0-alpha.1
 
 # Remove unnecessary files
 cd ../

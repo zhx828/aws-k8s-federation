@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: oncokb-dev-cert
+  namespace: test
+spec:
+  dnsNames:
+    - oncokb.dev
+  secretName: oncokb-dev-cert
+  issuerRef:
+    # you need to specify the kind, otherwise the certificate cannot find the issuer
+    kind: ClusterIssuer
+    name: letsencrypt-staging
+
+
+# this blog solved all my problem https://carpie.net/articles/installing-and-using-cert-manager-with-k3s

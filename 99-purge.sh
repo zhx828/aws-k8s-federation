@@ -6,7 +6,7 @@ set -eux
 # Delete clusters
 ./ap-northeast/delete.sh
 ./us-east/delete.sh
-./us-west/delete.sh
+#./us-west/delete.sh
 
 ID=$(echo ${HOSTED_ZONE_ID} | sed 's/\/hostedzone\///')
 

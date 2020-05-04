@@ -1,0 +1,9 @@
+apiVersion: multiclusterdns.kubefed.io/v1alpha1
+kind: IngressDNSRecord
+metadata:
+  name: ingress-dns-recored-oncokb.dev
+  namespace: test
+spec:
+  hosts:
+  - oncokb.dev
+  recordTTL: 300

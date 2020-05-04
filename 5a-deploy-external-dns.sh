@@ -25,13 +25,13 @@ rules:
 - apiGroups: [""]
   resources: ["pods"]
   verbs: ["get","watch","list"]
-- apiGroups: ["extensions"] 
-  resources: ["ingresses"] 
+- apiGroups: ["extensions"]
+  resources: ["ingresses"]
   verbs: ["get","watch","list"]
 - apiGroups: [""]
   resources: ["nodes"]
   verbs: ["list", "get", "watch"]
-- apiGroups: ["multiclusterdns.kubefed.k8s.io"]
+- apiGroups: ["multiclusterdns.kubefed.io"]
   resources: ["*"]
   verbs: ["*"]
 ---
@@ -73,7 +73,7 @@ spec:
         key: node-role.kubernetes.io/master
       containers:
       - name: external-dns
-        image: registry.opensource.zalan.do/teapot/external-dns:v0.5.9
+        image: registry.opensource.zalan.do/teapot/external-dns:v0.7.1
         args:
         - --source=service
         - --source=ingress
@@ -86,6 +86,6 @@ spec:
         - --log-level=debug
         - --txt-prefix=cname
         - --source=crd
-        - --crd-source-apiversion=multiclusterdns.kubefed.k8s.io/v1alpha1
+        - --crd-source-apiversion=multiclusterdns.kubefed.io/v1alpha1
         - --crd-source-kind=DNSEndpoint
 EOF

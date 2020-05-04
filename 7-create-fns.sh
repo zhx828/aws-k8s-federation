@@ -16,7 +16,7 @@ EOF
 
 # Create a federated namespace
 cat <<EOF | kubectl apply -f -
-apiVersion: types.kubefed.k8s.io/v1beta1
+apiVersion: types.kubefed.io/v1beta1
 kind: FederatedNamespace
 metadata:
   name: test
@@ -24,7 +24,6 @@ metadata:
 spec:
   placement:
     clusters:
-    - name: ap-northeast
     - name: us-east
-    - name: us-west
+    - name: ap-northeast
 EOF
