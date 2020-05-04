@@ -113,8 +113,8 @@ metadata:
 spec:
   image: kope.io/k8s-1.11-debian-stretch-amd64-hvm-ebs-2018-08-17
   machineType: ${MASTER_FLAVOR}
-  maxSize: ${MASTER_COUNT}
-  minSize: ${MASTER_COUNT}
+  maxSize: ${AP_NORTHEAST_MASTER_COUNT}
+  minSize: ${AP_NORTHEAST_MASTER_COUNT}
   nodeLabels:
     kops.k8s.io/instancegroup: master-${AP_NORTHEAST_ZONE}
   role: Master
@@ -130,8 +130,8 @@ metadata:
 spec:
   image: kope.io/k8s-1.11-debian-stretch-amd64-hvm-ebs-2018-08-17
   machineType: ${NODE_FLAVOR}
-  maxSize: ${NODE_COUNT}
-  minSize: ${NODE_COUNT}
+  maxSize: ${AP_NORTHEAST_NODE_COUNT}
+  minSize: ${AP_NORTHEAST_NODE_COUNT}
   nodeLabels:
     kops.k8s.io/instancegroup: nodes
   role: Node

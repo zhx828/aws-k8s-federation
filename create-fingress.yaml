@@ -5,20 +5,21 @@ metadata:
   namespace: test
   annotations:
     kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   template:
     spec:
       tls:
       - hosts:
         - oncokb.dev
-        secretName: oncokb-dev-cert
+        secretName: oncokb-dev-prod-cert
       rules:
       - host: oncokb.dev
         http:
           paths:
           - backend:
               serviceName: oncokb-sop
-              servicePort: 100
+              servicePort: 80
   placement:
     clusters:
     - name: us-east

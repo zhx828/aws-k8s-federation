@@ -21,6 +21,8 @@ spec:
           containers:
             - image: nginx
               name: nginx
+              ports:
+              - containerPort: 80
   placement:
     clusters:
     - name: us-east
@@ -39,7 +41,7 @@ spec:
       type: ClusterIP
       ports:
       - name: http
-        port: 100
+        port: 80
   placement:
     clusters:
     - name: us-east
