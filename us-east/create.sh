@@ -20,6 +20,43 @@ spec:
             "Effect": "Allow"
         }
       ]
+    node: |
+      [
+        {
+          "Effect": "Allow",
+          "Action": [
+            "route53:ChangeResourceRecordSets",
+            "route53:ListResourceRecordSets",
+            "route53:GetHostedZone"
+          ],
+          "Resource": [
+            "arn:aws:route53:::hostedzone/Z06081432XFWP1IPCY18Z"
+          ]
+        },
+        {
+          "Effect": "Allow",
+          "Action": [
+            "route53:GetChange"
+          ],
+          "Resource": [
+            "arn:aws:route53:::change/*"
+          ]
+        },
+        {
+          "Effect": "Allow",
+          "Action": [
+            "route53:ListHostedZones"
+          ],
+          "Resource": [
+            "*"
+          ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+        }
+      ]
   api:
     dns: {}
   authorization:

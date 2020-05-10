@@ -30,7 +30,7 @@ spec:
             "route53:GetHostedZone"
           ],
           "Resource": [
-            "arn:aws:route53:::hostedzone/*"
+            "arn:aws:route53:::hostedzone/Z06081432XFWP1IPCY18Z"
           ]
         },
         {
