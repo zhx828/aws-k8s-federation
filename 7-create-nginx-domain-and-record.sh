@@ -11,7 +11,7 @@ cat <<EOF | kubectl apply -f -
 apiVersion: multiclusterdns.kubefed.io/v1alpha1
 kind: Domain
 metadata:
-  name: test-domain
+  name: oncokb-dev
   namespace: kube-federation-system
 domain: ${DOMAIN_NAME}
 EOF

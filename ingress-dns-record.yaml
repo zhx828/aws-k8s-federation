@@ -1,7 +1,7 @@
 apiVersion: multiclusterdns.kubefed.io/v1alpha1
 kind: IngressDNSRecord
 metadata:
-  name: ingress-dns-recored-oncokb.dev
+  name: ingress-oncokb-dev
   namespace: test
 spec:
   hosts:

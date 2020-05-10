@@ -20,19 +20,25 @@ metadata:
   name: external-dns
 rules:
 - apiGroups: [""]
-  resources: ["services"]
-  verbs: ["get","watch","list"]
-- apiGroups: [""]
-  resources: ["pods"]
+  resources: ["services","endpoints","pods"]
   verbs: ["get","watch","list"]
 - apiGroups: ["extensions"]
   resources: ["ingresses"]
   verbs: ["get","watch","list"]
 - apiGroups: [""]
   resources: ["nodes"]
-  verbs: ["list", "get", "watch"]
+  verbs: ["list", "watch"]
 - apiGroups: ["multiclusterdns.kubefed.io"]
-  resources: ["*"]
+  resources: ["dnsendpoints"]
+  verbs: ["get","watch","list"]
+- apiGroups: ["multiclusterdns.kubefed.io"]
+  resources: ["dnsendpoints/status"]
+  verbs: ["*"]
+- apiGroups: ["externaldns.k8s.io"]
+  resources: ["dnsendpoints"]
+  verbs: ["get","watch","list"]
+- apiGroups: ["externaldns.k8s.io"]
+  resources: ["dnsendpoints/status"]
   verbs: ["*"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -47,6 +53,5 @@ subjects:
 - kind: ServiceAccount
   name: external-dns
   namespace: kube-federation-system
----
 
 EOF
