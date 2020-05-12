@@ -7,7 +7,7 @@
         "Name": "nginx.k8s.example.com",
         "Type": "CNAME",
         "Region": "ap-northeast-1",
-        "TTL": 300,
+        "TTL": 10,
         "SetIdentifier": "ap-northeast-1",
         "ResourceRecords": [
           {

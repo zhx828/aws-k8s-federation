@@ -44,7 +44,7 @@ spec:
           - --aws-zone-type=public
           - --registry=txt
           - --txt-owner-id=${HOSTED_ZONE_ID}
-          - --txt-prefix=cname
+          - --txt-prefix=cname.
           - --log-level=debug
 
 EOF

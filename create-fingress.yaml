@@ -6,20 +6,33 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/hostname: oncokb.dev
 spec:
   template:
     spec:
       tls:
       - hosts:
         - oncokb.dev
+        - asia.oncokb.dev
+        - us.oncokb.dev
         secretName: oncokb-dev-prod-cert
       rules:
       - host: oncokb.dev
         http:
           paths:
           - backend:
-              serviceName: oncokb-sop
+              serviceName: oncokb-core
+              servicePort: 80
+      - host: asia.oncokb.dev
+        http:
+          paths:
+          - backend:
+              serviceName: oncokb-core
+              servicePort: 80
+      - host: us.oncokb.dev
+        http:
+          paths:
+          - backend:
+              serviceName: oncokb-core
               servicePort: 80
   placement:
     clusters:

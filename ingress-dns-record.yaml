@@ -6,4 +6,4 @@ metadata:
 spec:
   hosts:
   - oncokb.dev
-  recordTTL: 300
+  recordTTL: 10
